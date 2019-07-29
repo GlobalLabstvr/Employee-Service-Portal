@@ -1,0 +1,46 @@
+<mat-card>
+  <table> <tr> <mat-label style="font-size:40px; margin-bottom: 20px"><b>REGISTER</b></mat-label></tr>
+    </table>
+
+   <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+    <mat-form-field>
+
+      <input type="text" formControlName="firstName" matInput placeholder="First Name">
+     <span *ngIf="!signupForm.get('firstName').valid && signupForm.get('firstName').touched" class="helpblock">Please enter a valid username!</span>
+
+    </mat-form-field>
+
+  <mat-form-field>
+
+      <input type="text" formControlName="lastName" matInput placeholder="Last Name">
+
+     <span *ngIf="!signupForm.get('lastName').valid && signupForm.get('lastName').touched" class="helpblock">Please enter a valid username!</span>
+
+  </mat-form-field>
+
+  <mat-form-field>
+    <input type="text" formControlName="phoneNumber"  matInput placeholder="Phone Number">
+
+  </mat-form-field>
+
+  <mat-form-field>
+    <input type="text" formControlName="email"  matInput placeholder="Email">
+    <span  *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched" class="helpblock">This field is required!</span>
+
+  </mat-form-field>
+
+  <mat-form-field>
+    <input type="text" formControlName="password"  matInput placeholder="Password">
+    <span  *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched" class="helpblock">This field is required!</span>
+  </mat-form-field>
+
+  <mat-card-actions>
+    <button  class="btn btn-primary" type="submit" [disabled]="!signupForm.valid" color="accent">Signup</button>
+    <p>
+      <span class=" "><b>Have an account?</b>
+        <button mat-button routerLink="/home" class="divider">Login</button>
+        </span></p>
+  </mat-card-actions>
+  </form>
+</mat-card>
+
